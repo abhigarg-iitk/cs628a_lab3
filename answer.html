@@ -1,0 +1,20 @@
+<html>
+<body>
+<iframe id="m" src="http://localhost:8080/zoobar/index.cgi/transfer"></iframe>
+<iframe id="m1" src="http://localhost:8080/zoobar/index.cgi/users"></iframe>
+<script>
+var e=0,e1=0;
+document.getElementById("m").onload = function(){
+    e++;
+    //var t = document.getElementById('m').contentWindow.location; 
+    //t.name == "http://localhost:8080/zoobar/index.cgi/login";
+    //alert(t);
+    console.log(e);
+}
+document.getElementById("m").onbeforeunload = function(){
+    e1++;
+    console.log(e1);
+}
+</script>
+</body>
+</html>

